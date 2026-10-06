@@ -20,6 +20,9 @@ def parser_for(root):
     engine = serve.add_mutually_exclusive_group()
     engine.add_argument('--config', help='project-relative service launch YAML')
     evaluate = commands.add_parser('eval', help='evaluate an existing model service')
+    evaluate.add_argument('--suite', choices=('groundanything30', 'groundingpi34'),
+                          help='run a complete named suite, replacing template tasks and sample limit')
+    evaluate.add_argument('--run-id', help='new result directory name; --suite otherwise generates a fresh ID')
     evaluation = evaluate.add_mutually_exclusive_group()
     evaluation.add_argument('--config', help='project-relative evaluation YAML')
     actions = [setup, train, serve, evaluate]
@@ -76,6 +79,10 @@ def plan(args, root=ROOT):
             raise ValueError('configuration YAML not found: ' + config)
         script = 'evaluate.py' if args.action == 'eval' else 'run.py'
         command = [python, str(root / 'scripts' / script), config]
+        if args.action == 'eval':
+            for flag, value in (('--suite', args.suite), ('--run-id', args.run_id)):
+                if value is not None:
+                    command += [flag, value]
     if args.action != 'setup' and (not args.dry_run) and (not Path(python).is_file()):
         hint = f'python3 run.py setup {profile} --venv {venv}'
         raise ValueError('environment missing; run: ' + hint)

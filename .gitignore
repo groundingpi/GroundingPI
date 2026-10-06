@@ -36,6 +36,8 @@ id_ed25519
 *.p12
 *.pfx
 secrets/
+/configs/datasets.local.yaml
+/configs/eval/*.local.yaml
 
 # Logs, checkpoints and profiling artifacts
 logs/

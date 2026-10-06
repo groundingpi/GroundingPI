@@ -15,12 +15,13 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 from config_contract import relative
+from eval_suites import SUITE_COUNTS, resolve_suite
 sys.path.insert(0, str(ROOT))
 from eval.utils.eval_data_root import input_path, load_data_paths, task_data_inputs, missing_data_inputs
 
 MODES = ('VLM', 'GAM', 'DLM', 'RLV2', 'REXOMNI', 'LOCATEANYTHING', 'GROUNDINGDINO')
 FIELDS = {'datasets', 'mode', 'model_path', 'model_type', 'api_url', 'api_urls', 'data_root', 'output_root',
-          'tasks', 'run_id', 'limit', 'concurrency', 'coordinate_mode',
+          'tasks', 'suite', 'run_id', 'limit', 'concurrency', 'coordinate_mode',
           'locate_generation_mode', 'rex_tokenizer_path', 'base_port', 'model_id', 'max_tokens', 'service_contract', 'decoder'}
 
 def task_inventory(root):
@@ -37,6 +38,7 @@ def task_inventory(root):
     return tasks
 
 def plan(config, root=ROOT):
+    config = resolve_suite(config, root=root)
     if not isinstance(config, dict) or set(config) - FIELDS:
         raise ValueError('unknown evaluation fields or non-mapping configuration')
     required = {'mode', 'model_path', 'api_url', 'data_root', 'output_root', 'tasks', 'run_id'}
@@ -74,7 +76,7 @@ def plan(config, root=ROOT):
     paths = {k: relative(root, config[k]) for k in ('model_path', 'output_root')}
     paths['data_root'] = input_path(root, config['data_root'])
     output = paths['output_root'] / run_id
-    relative(root, str(output.relative_to(root)))
+    relative(root, output.relative_to(root).as_posix())
     # Output must never contain or be inside inputs.
     for k in ('model_path', 'data_root'):
         if output == paths[k] or output in paths[k].parents or paths[k] in output.parents:
@@ -162,6 +164,7 @@ def plan(config, root=ROOT):
     return {'command': command, 'env': env, 'output': str(output.relative_to(root)),
             'missing_inputs': [str(paths['model_path'])] * (not paths['model_path'].is_dir()) + missing_data_inputs(data_inputs),
             'mode': mode, 'evaluation_scope': 'smoke' if limit else 'full',
+            **({'suite': config['suite']} if 'suite' in config else {}),
             'tasks': tasks,
             'effective_runtime': {'decoder': decoder,
                                   'decode_profile': 'DecodeV4' if decoder == 'denoise' else None,
@@ -256,8 +259,12 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('config')
     parser.add_argument('--dry-run', action='store_true')
+    parser.add_argument('--suite', choices=tuple(SUITE_COUNTS),
+                        help='run the complete named suite, replacing template tasks and sample limit')
+    parser.add_argument('--run-id', help='new result directory name; --suite otherwise generates a fresh ID')
     args = parser.parse_args()
-    config = yaml.safe_load(relative(ROOT, args.config).read_text())
+    config = resolve_suite(yaml.safe_load(relative(ROOT, args.config).read_text(encoding='utf-8')),
+                           root=ROOT, suite=args.suite, run_id=args.run_id)
     prepared = plan(config)
     print(json.dumps(prepared, ensure_ascii=False, indent=2))
     if args.dry_run: return 0

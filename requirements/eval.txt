@@ -7,6 +7,8 @@ editdistance
 torch @ https://download.pytorch.org/whl/cpu/torch-2.5.1%2Bcpu-cp312-cp312-linux_x86_64.whl
 torchvision @ https://download.pytorch.org/whl/cpu/torchvision-0.20.1%2Bcpu-cp312-cp312-linux_x86_64.whl
 datasets>=2.19,<4
+# Tested reader for the released RefSpatial/RoboSpatial Parquet files.
+pyarrow==21.0.0
 numpy==1.26.4
 transformers>=4.39.2,<5
 opencv-python-headless<4.12

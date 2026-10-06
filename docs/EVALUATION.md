@@ -8,7 +8,7 @@ The canonical guide is maintained in [eval/README.md](../eval/README.md).
 
 ## 📋 Complete 34-benchmark evaluation
 
-Follow the [full-suite configuration and task list](../eval/README.md#full-suite), then [check inputs and run](../eval/README.md#run).
+Start with [download and data preparation](../eval/README.md#data), generate the named [`groundingpi34` suite](../eval/README.md#full-suite), then [check inputs and run](../eval/README.md#run).
 
 <a id="setup"></a>
 
@@ -20,7 +20,7 @@ See [environment and service preparation](../eval/README.md#setup) and [evaluati
 
 ## 📦 Evaluation data and tasks
 
-[Grounding-EvalData](https://huggingface.co/datasets/Skywalker0410/Grounding-EvalData) · [Task selection and local configuration](../eval/README.md#full-suite)
+[Grounding-EvalData](https://huggingface.co/datasets/Skywalker0410/Grounding-EvalData) · [Download and preparation](../eval/README.md#data) · [Task selection and local configuration](../eval/README.md#full-suite) · [Optional deep data checks](../eval/README.md#data-checks)
 
 <a id="outputs"></a>
 
