@@ -14,15 +14,21 @@
 <p align="center">
   <a href="https://arxiv.org/abs/2609.39601"><img src="https://img.shields.io/badge/%F0%9F%93%98%20Paper-b53f4c?style=flat-square" alt="📘 Paper" /></a>
   <a href="https://huggingface.co/GroundingPI/GroundingPI"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20HF%20Model-cb8625?style=flat-square" alt="🤗 HF Model" /></a>
+  <a href="https://www.modelscope.ai/models/GroundingPI/GroundingPI"><img src="docs/assets/modelscope.svg" alt="ModelScope" /></a>
   <a href="https://huggingface.co/spaces/GroundingPI/GroundingPI"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20HF%20Demo-cb8625?style=flat-square" alt="🤗 HF Demo" /></a>
   <a href="https://groundingpi.github.io/"><img src="https://img.shields.io/badge/%F0%9F%8C%90%20Project%20Page-367ab5?style=flat-square" alt="🌐 Project Page" /></a>
   <a href="https://github.com/groundingpi/GroundingPI"><img src="https://img.shields.io/badge/%F0%9F%92%BB%20GitHub-30363d?style=flat-square" alt="💻 GitHub" /></a>
+  <a href="https://mp.weixin.qq.com/s/MWR6Rqv_3ieamBd5AJk0qw"><img src="https://img.shields.io/badge/Report-07C160?style=flat-square&amp;logo=wechat&amp;logoColor=white" alt="Report" /></a>
 </p>
 
 <p align="center">
   <a href="#vllm-deployment"><img src="https://img.shields.io/badge/vLLM%20%C2%B7%20Transformers%20backend-548c38?style=flat-square" alt="vLLM · Transformers backend" /></a>
   <a href="#deployment-options"><img src="https://img.shields.io/badge/OpenAI--compatible%20API-367ab5?style=flat-square" alt="OpenAI-compatible API" /></a>
   <a href="#batch-annotation"><img src="https://img.shields.io/badge/Batch%20annotation%20%C2%B7%20JSONL-cb8625?style=flat-square" alt="Batch annotation · JSONL" /></a>
+</p>
+
+<p align="center">
+  <a href="https://huggingface.co/papers/2609.39601"><img src="docs/assets/huggingface-paper-gold-day.svg" width="250" alt="Hugging Face Daily Paper — #1 Paper of the Day" /></a>
 </p>
 
 <p align="center"><a href="#demo">Demo Video</a> · <a href="#quick-start">Quick Start</a> · <a href="#documentation">Documentation</a> · <a href="#citation">Citation</a></p>
@@ -33,6 +39,9 @@
 
 ## 📰 News
 
+- **2026-10-14:** [GroundingPI model weights](https://www.modelscope.ai/models/GroundingPI/GroundingPI) are now available on ModelScope.
+- **2026-10-14:** GroundingPI is featured in a [report by 具身智能之心](https://mp.weixin.qq.com/s/MWR6Rqv_3ieamBd5AJk0qw).
+- **2026-10-14:** GroundingPI ranked **#1 Paper of the Day** on [Hugging Face Daily Papers](https://huggingface.co/papers/2609.39601).
 - **2026-10-04:** Released the [project webpage](https://groundingpi.github.io/).
 - **2026-10-03:** Released the source code, deployment and batch-annotation guides, and full-suite evaluation workflows.
 - **2026-10-01:** We released the [GroundingPI model weights](https://huggingface.co/GroundingPI/GroundingPI) on Hugging Face.

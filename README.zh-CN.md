@@ -7,9 +7,15 @@
 <p align="center">
   [<a href="https://arxiv.org/abs/2609.39601">📘 论文</a>]
   [<a href="https://huggingface.co/GroundingPI/GroundingPI">🤗 HF 模型</a>]
+  <a href="https://www.modelscope.ai/models/GroundingPI/GroundingPI"><img src="docs/assets/modelscope.svg" alt="ModelScope" /></a>
   [<a href="https://huggingface.co/spaces/GroundingPI/GroundingPI">🤗 HF 演示</a>]
   [<a href="https://groundingpi.github.io/">🌐 项目主页</a>]
   [<a href="https://github.com/groundingpi/GroundingPI">💻 GitHub</a>]
+  [<a href="https://mp.weixin.qq.com/s/MWR6Rqv_3ieamBd5AJk0qw">📰 具身智能之心</a>]
+</p>
+
+<p align="center">
+  <a href="https://huggingface.co/papers/2609.39601"><img src="docs/assets/huggingface-paper-gold-day.svg" width="250" alt="Hugging Face Daily Paper — #1 Paper of the Day" /></a>
 </p>
 
 <p align="center"><a href="#demo">演示视频</a> · <a href="#quick-start">快速开始</a> · <a href="#documentation">文档</a> · <a href="#citation">引用</a></p>
@@ -20,6 +26,9 @@
 
 ## 📰 新闻
 
+- **2026-10-14：** [GroundingPI 模型权重](https://www.modelscope.ai/models/GroundingPI/GroundingPI)已上线 ModelScope。
+- **2026-10-14：** GroundingPI 获[具身智能之心报道](https://mp.weixin.qq.com/s/MWR6Rqv_3ieamBd5AJk0qw)。
+- **2026-10-14：** GroundingPI 获得 [Hugging Face Daily Papers 当日第一（Top 1）](https://huggingface.co/papers/2609.39601)。
 - **2026-10-04：** 发布[项目网页](https://groundingpi.github.io/)。
 - **2026-10-03：** 发布源代码、推理指南和完整评测流程。
 - **2026-10-01：** 在 Hugging Face 上发布 [GroundingPI 模型权重](https://huggingface.co/GroundingPI/GroundingPI)。

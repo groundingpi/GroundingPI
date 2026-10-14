@@ -43,7 +43,7 @@ The documented serving setup selects the appropriate platform runtime. Evaluatio
 
 ## 📦 Evaluation data
 
-Download [Grounding-EvalData](https://huggingface.co/datasets/Skywalker0410/Grounding-EvalData), which supplies the evaluation inputs for GroundingPI's **34 entries** and GroundAnything's **30-entry subset**. Install the download utility in your chosen download environment:
+Download Grounding-EvalData from [Hugging Face](https://huggingface.co/datasets/Skywalker0410/Grounding-EvalData), [ModelScope (International)](https://www.modelscope.ai/datasets/Skywalker0410/Grounding-EvalData), or [ModelScope (China)](https://modelscope.cn/datasets/AndySkywalker/Grounding-EvalData). It supplies the evaluation inputs for GroundingPI's **34 entries** and GroundAnything's **30-entry subset**. Install the download utility in your chosen download environment:
 
 ```bash
 python3 -m pip install -U huggingface_hub
