@@ -97,6 +97,21 @@ Already have a source checkout? Start with `cd GroundingPI`. Run subsequent comm
 
 **Tested accelerators:** NVIDIA **B300, B200, H200, H800**, and **PPU**. Use the matching runtime for each accelerator. See [Environment Setup](environments/README.md) for installation details.
 
+### How to run the same on Intel's XPU
+
+The native Transformers service (see [Native service](docs/INFERENCE.md#native-service)) runs on Intel GPUs with PyTorch's `xpu` device. Skip the vLLM setup and use the XPU build of PyTorch:
+
+```bash
+python3 -m pip install torch --index-url https://download.pytorch.org/whl/xpu
+python3 scripts/prepare_dependencies.py --apply
+python3 -m pip install --no-deps -e vendor/transformers
+python3 -m infer.serve_vlm --model weights/vlm --device xpu:0 --dtype bfloat16
+```
+
+The service uses the same endpoint and model ID as above. Without `--device` it picks the first XPU, then the first CUDA device, then the CPU. Flash attention is CUDA-only, so every other device uses PyTorch SDPA automatically.
+
+vLLM serving, training and evaluation stay CUDA-only.
+
 <a id="deployment-options"></a>
 
 ## 🧩 Deployment Options

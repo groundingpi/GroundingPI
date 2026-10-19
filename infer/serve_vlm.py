@@ -1,4 +1,5 @@
 """Single-device reference chat server using the verified, bundled Transformers fork."""
+from infer.device import resolve_attn_implementation, resolve_device
 from infer.request_contract import validate_thinking
 
 import argparse
@@ -136,6 +137,8 @@ class Engine:
         if not model_path.is_dir(): raise ValueError('model directory is missing')
         transformers, revision = bundled_transformers()
         import torch
+        args.device = resolve_device(args.device)
+        args.attn_implementation = resolve_attn_implementation(args.attn_implementation, args.device)
         self.torch, self.args = torch, args
         self.defaults = {key: getattr(args, key) for key in
                          ('temperature', 'top_p', 'top_k', 'repetition_penalty', 'stop')}
@@ -239,9 +242,10 @@ def main():
     parser.add_argument('--host', default='127.0.0.1')
     parser.add_argument('--port', type=int, default=8000)
     parser.add_argument('--served-model-name', default='groundingpi')
-    parser.add_argument('--device', default='cuda:0')
+    parser.add_argument('--device', default=None, help='default: first XPU, else first CUDA device, else cpu')
     parser.add_argument('--dtype', choices=['bfloat16', 'float16', 'float32'], default='bfloat16')
-    parser.add_argument('--attn-implementation', choices=['flash_attention_2', 'sdpa', 'eager'], default='flash_attention_2')
+    parser.add_argument('--attn-implementation', choices=['flash_attention_2', 'sdpa', 'eager'], default=None,
+                        help='default: flash_attention_2 on CUDA when installed, else sdpa')
     parser.add_argument('--non-thinking', action=argparse.BooleanOptionalAction, default=True)
     parser.add_argument('--max-new-tokens', type=int, default=256)
     parser.add_argument('--temperature', type=float, default=0.0)
