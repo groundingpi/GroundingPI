@@ -110,7 +110,7 @@ python3 -m infer.serve_vlm --model weights/vlm --device xpu:0 --dtype bfloat16
 
 The service uses the same endpoint and model ID as above. Without `--device` it picks the first XPU, then the first CUDA device, then the CPU. Flash attention is CUDA-only, so every other device uses PyTorch SDPA automatically.
 
-vLLM serving, training and evaluation stay CUDA-only.
+vLLM serving stays CUDA-only.
 
 <a id="deployment-options"></a>
 
