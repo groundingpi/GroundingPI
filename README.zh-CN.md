@@ -373,14 +373,11 @@ GroundingPI/
 如果本工作对你的研究有帮助，请引用：
 
 ```bibtex
-@misc{yu2026groundingpigroundingfoundationmodel,
-  title = {{GroundingPI}: A Grounding Foundation Model towards Physical Intelligence with Visual Primitives},
-  author = {Qize Yu and Lianrui Fan and Boyu Chen and Jiaqi Liang and Xini Ding and Yue Chen and Zetian Song and Yuran Wang and Yi Zou and Kaixuan Wang and Tianxing Chen and Wenxuan Song and Bohan Zhou and Mingleyang Li and Siqiao Huang and Yuqi Ye and Caigao Jiang and Wei Wei and Ruihai Wu and Hang Zhang and Yixiao Ge and Shuchang Zhou and Shilong Liu and Xianming Liu and Ping Luo and Shiyu Huang},
-  year = {2026},
-  eprint = {2609.39601},
-  archivePrefix = {arXiv},
-  primaryClass = {cs.CV},
-  url = {https://arxiv.org/abs/2609.39601},
+@article{yu2026groundingpi,
+  title={GroundingPI: A Grounding Foundation Model towards Physical Intelligence with Visual Primitives},
+  author={Yu, Qize and Fan, Lianrui and Chen, Boyu and Liang, Jiaqi and Ding, Xini and Chen, Yue and Song, Zetian and Wang, Yuran and Zou, Yi and Wang, Kaixuan and others},
+  journal={arXiv preprint arXiv:2609.39601},
+  year={2026}
 }
 ```
 
