@@ -12,7 +12,7 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT / "scripts"))
 from config_contract import (relative as checked_relative, validate_native,
                              validate_tree, checkpoint_args, native_inputs, validate_argv)
-TARGETS={'vlm-vllm': ['-m', 'infer.serve_vllm'], 'vlm-train': ['-m', 'swift.cli.sft'], 'vlm-config': ['-m', 'train.vlm.config_runtime'], 'vlm-serve': ['-m', 'infer.serve_vlm'], 'vlm-overlay': ['infer/overlay/prepare_model_overlay.py'], 'eval': ['-m', 'eval.eval_runner'], 'eval-yaml': ['scripts/evaluate.py']}
+TARGETS={'vlm-vllm': ['-m', 'infer.serve_vllm'], 'vlm-train': ['-m', 'swift.cli.sft'], 'vlm-config': ['-m', 'train.vlm.config_runtime'], 'vlm-serve': ['-m', 'infer.serve_vlm'], 'vlm-serve-xpu': ['-m', 'infer.serve_vlm_xpu'], 'vlm-overlay': ['infer/overlay/prepare_model_overlay.py'], 'eval': ['-m', 'eval.eval_runner'], 'eval-yaml': ['scripts/evaluate.py']}
 
 def relative(value):
     return checked_relative(ROOT,value)
