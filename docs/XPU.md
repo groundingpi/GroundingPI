@@ -6,7 +6,7 @@ This XPU integration supports the native Transformers service only. It adds a se
 
 | Item | Value |
 |:---|:---|
-| Hardware | Intel Core Ultra 9 285H with its integrated Arc GPU (Arrow Lake) |
+| Hardware | Intel Core Ultra Series 2 iGPU |
 | OS and GPU runtime | Ubuntu 24.04, Linux 6.11, i915 driver, Level Zero 1.24 |
 | Python / Torch | 3.12 / 2.15.0+xpu from the PyTorch XPU index |
 | Transformers | Bundled 5.7.0 fork (`vendor/transformers`, source revision `90dd8674248257e1115e531f2250fd85a32c3863`) |
