@@ -97,6 +97,14 @@ Already have a source checkout? Start with `cd GroundingPI`. Run subsequent comm
 
 **Tested accelerators:** NVIDIA **B300, B200, H200, H800**, and **PPU**. Use the matching runtime for each accelerator. See [Environment Setup](environments/README.md) for installation details.
 
+### Run on Intel GPU (XPU)
+
+The native Transformers service also runs on Intel GPUs through a separate entrypoint, configuration and environment. This XPU integration supports the native Transformers service only. See the [Intel GPU (XPU) guide](docs/XPU.md) for setup, the tested configuration and the validation script. With the XPU environment in `.venv-xpu`:
+
+```bash
+python3 run.py serve --config configs/release/vlm_serve_xpu.yaml --venv .venv-xpu
+```
+
 <a id="deployment-options"></a>
 
 ## 🧩 Deployment Options
@@ -377,6 +385,7 @@ Full benchmark definitions, comparisons, and downstream experiments are in the [
 | [Environment Setup](environments/README.md) | Workflow environments and platform prerequisites |
 | [Inference](docs/INFERENCE.md) | Serving, model preparation, configuration, and reference backend |
 | [vLLM Deployment](docs/VLLM.md) | GPU / PPU setup, container starting point, and image API requests |
+| [Intel GPU (XPU)](docs/XPU.md) | Native service on Intel GPUs: setup, tested configuration and validation |
 | [Batch Annotation](docs/BATCH_INFERENCE.md) | Resumable JSONL predictions for image collections |
 | [Examples](examples/README.md) | Image prediction, JSON output, and visualization |
 | [Evaluation](eval/README.md) | Dataset setup, paper benchmark suite, execution, and results |
